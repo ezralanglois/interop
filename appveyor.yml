@@ -99,16 +99,16 @@ artifacts:
 
 branches:
   only:
-  - master
+  - make-python-public
   - /v\d\.\d\.\d/
 
 deploy:
   provider: GitHub
   description: 'Release description'
-  artifact: /interop-.*\.zip|*\.whl/
+  artifact: /interop-.*\.zip/,/.*\.whl/
   draft: true
   auth_token:
-      secure: HcMKUFlziwHVs3kI4ZWKvy9LPKHUoVsaURh9C0yHz7rvMaPD/J7yvlPcTYK7mdrM
+      secure: xPk9pZ2hYSMXoULnT7/9/FxBxb2Gn8rYHUDLCLocO1peevPcWdiQ9i/j6U3nJ45h
   on:
     appveyor_repo_tag: true
     configuration: Release
