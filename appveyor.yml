@@ -18,6 +18,8 @@
 # C# Compiler is always .NET v4.0.30319
 #
 # TODO: Why does enabling CRT fail on appveyor?
+#
+# TODO: Add code to download miniconda if it does not exist
 
 configuration:
   - Debug
