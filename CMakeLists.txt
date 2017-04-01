@@ -1,9 +1,13 @@
 cmake_minimum_required(VERSION 3.2)
+if(CMAKE_VERSION VERSION LESS 3.4)
+    message(WARNING "For CMake version less than 3.4, you must explicitly set -DPYTHON_LIBRARY and -DPYTHON_INCLUDE_DIR to build the Python binding")
+endif()
 project(InterOp)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules)
 enable_testing()
 include(${PROJECT_SOURCE_DIR}/cmake/Modules/UseGitVersion.cmake)
 set(ARCHIVE_VERSION "v1.0.16-src")
+set(Python_ADDITIONAL_VERSIONS 3.6 3.5)
 
 find_package(OpenMP)
 if(OPENMP_FOUND)
