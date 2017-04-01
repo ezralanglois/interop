@@ -1,9 +1,10 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.4)
 project(InterOp)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake/Modules)
 enable_testing()
 include(${PROJECT_SOURCE_DIR}/cmake/Modules/UseGitVersion.cmake)
 set(ARCHIVE_VERSION "v1.0.16-src")
+set(Python_ADDITIONAL_VERSIONS 3.6 3.5)
 
 find_package(OpenMP)
 if(OPENMP_FOUND)
