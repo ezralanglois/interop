@@ -31,7 +31,10 @@ matrix:
     env: INTEROP_C89=ON BUILD_TYPE=Debug BUILD_NAME=linux_gcc46_debug
   - compiler: gcc
     os: linux
-    env: INTEROP_C89=ON BUILD_TYPE=Release BUILD_NAME=linux_gcc46_release DEPLOY_BUILD=true
+    env: INTEROP_C89=ON BUILD_TYPE=Release BUILD_NAME=linux_py36_gcc46_release DEPLOY_BUILD=true PYTHON_VERSION_NUM="3.6"
+  - compiler: gcc
+    os: linux
+    env: INTEROP_C89=ON BUILD_TYPE=Release BUILD_NAME=linux_py27_gcc46_release DEPLOY_BUILD=true
   - compiler: gcc
     addons: &1
       apt:
@@ -105,8 +108,8 @@ cache:
     - $HOME/NUnit-2.6.4
 
 install:
-- if test "$TRAVIS_OS_NAME" = "linux"; then source tools/travis-linux-install.sh; fi
-- if test "$TRAVIS_OS_NAME" = "osx"; then source tools/travis-osx-install.sh; fi
+- if test "$TRAVIS_OS_NAME" = "linux"; then source tools/travis-linux-install.sh $PYTHON_VERSION_NUM ; fi
+- if test "$TRAVIS_OS_NAME" = "osx"; then source tools/travis-osx-install.sh $PYTHON_VERSION_NUM ; fi
 - ls -la $(which $CC)
 - ls -la $(which $CXX)
 - ls $HOME/NUnit-2.6.4
@@ -118,6 +121,7 @@ before_script:
 - export CC="${CC}${COMPILER_VERSION}"
 - export CXX="${CXX}${COMPILER_VERSION}"
 - export PATH="$HOME/miniconda/bin:$PATH"
+- source activate test-environment
 
 script:
 - export BUILD_PATH=${PWD}/${BUILD_NAME}

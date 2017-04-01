@@ -10,7 +10,7 @@ Illumina sequencers. These libraries are backwards compatible and capable of sup
 with one exception: GA systems have been excluded.
 
 ***
->  We now support an interface to Python (see contents below)
+>  We now support an interface to Python 2.7 and 3.6 (see contents below)
 ***
 
 The InterOp files supported by this library include:
@@ -70,6 +70,8 @@ Install
 -------
 
 ### Python
+
+Supported versions for binary distribution: 2.7 and 3.6.
 
 You should have NumPy already installed.
 
