@@ -1,9 +1,22 @@
 # Changes                                               {#changes}
 
-## v1.0.19 (Master)
+## v1.0.21 (Master)
 
 Date       | Description
 ---------- | -----------
+0000-00-00 | placeholder
+
+## v1.0.20
+
+Date       | Description
+---------- | -----------
+2017-04-07 | More portable Python build
+
+## v1.0.19
+
+Date       | Description
+---------- | -----------
+2017-04-02 | Added Python 3 support
 
 ## v1.0.18
 
