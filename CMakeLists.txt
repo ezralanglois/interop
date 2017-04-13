@@ -5,8 +5,9 @@ enable_testing()
 include(${PROJECT_SOURCE_DIR}/cmake/Modules/UseGitVersion.cmake)
 set(ARCHIVE_VERSION "v1.0.16-src")
 
+option(ENABLE_PORTABLE "Create a portable build of InterOP")
 find_package(OpenMP)
-if(OPENMP_FOUND)
+if(OPENMP_FOUND AND NOT ENABLE_PORTABLE)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OpenMP_C_FLAGS}")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${OpenMP_CXX_FLAGS}")
 endif()
@@ -36,6 +37,7 @@ option(FORCE_X86 "Force 32-bit libraries instead of platform default (Does nothi
 option(FORCE_SHARED_CRT "Used the shared (DLL) run time lib (must be ON if compiling for C#)" ON)
 option(ENABLE_CSHARP "Build C# language bindings" ON)
 option(ENABLE_PYTHON "Build Python language bindings" ON)
+option(ENABLE_PORTABLE "Statically link libraries for GCC compiler")
 
 include(${PROJECT_SOURCE_DIR}/cmake/InternalUtils.cmake)
 interop_config_compiler_and_linker()
