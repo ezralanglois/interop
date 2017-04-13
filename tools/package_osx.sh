@@ -66,15 +66,15 @@ cmake $SOURCE_PATH -Bbuild27 -DPYTHON_EXECUTABLE=$CONDA2/bin/python -DPACKAGE_OU
 echo -en ${TRAVIS_END}
 
 echo 'Test with Py27...' && echo -en ${TRAVIS_BEG}
-cmake --build build27 --target check
+cmake --build build27 --target check -- -j4
 echo -en ${TRAVIS_END}
 
 echo 'Package with Py27...' && echo -en ${TRAVIS_BEG}
-cmake --build build27 --target package
+cmake --build build27 --target package  -j4
 echo -en ${TRAVIS_END}
 
 echo 'Package Wheel with Py27...' && echo -en ${TRAVIS_BEG}
-cmake --build build27 --target package_wheel
+cmake --build build27 --target package_wheel  -j4
 echo -en ${TRAVIS_END}
 
 echo 'Configure with Py36...' && echo -en ${TRAVIS_BEG}
@@ -82,14 +82,14 @@ cmake $SOURCE_PATH -Bbuild36 -DPYTHON_EXECUTABLE=$CONDA3/bin/python -DPACKAGE_OU
 echo -en ${TRAVIS_END}
 
 echo 'Test with Py36...' && echo -en ${TRAVIS_BEG}
-cmake --build build27 --target check
+cmake --build build27 --target check  -j4
 echo -en ${TRAVIS_END}
 
 echo 'Package with Py36...' && echo -en ${TRAVIS_BEG}
-cmake --build build36 --target package
+cmake --build build36 --target package  -j4
 echo -en ${TRAVIS_END}
 
 echo 'Package Wheel with Py36...' && echo -en ${TRAVIS_BEG}
-cmake --build build36 --target package_wheel
+cmake --build build36 --target package_wheel  -j4
 echo -en ${TRAVIS_END}
 
