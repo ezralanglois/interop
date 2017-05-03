@@ -43,6 +43,10 @@ if(CMAKE_COMPILER_IS_GNUCC AND ENABLE_PORTABLE)
     set (CMAKE_SHARED_LINKER_FLAGS "-static-libgcc -static-libstdc++")
 endif()
 
+if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang" OR "${CMAKE_CXX_COMPILER_ID}" STREQUAL "AppleClang")
+    set(CMAKE_SHARED_LIBRARY_CREATE_CXX_FLAGS "${CMAKE_SHARED_LIBRARY_CREATE_CXX_FLAGS} -undefined dynamic_lookup")
+endif()
+
 add_custom_target(python_lib)
 set_target_properties(python_lib PROPERTIES EXCLUDE_FROM_ALL 1 EXCLUDE_FROM_DEFAULT_BUILD 1)
 
